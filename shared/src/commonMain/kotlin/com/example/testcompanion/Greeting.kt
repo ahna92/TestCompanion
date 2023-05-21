@@ -13,7 +13,7 @@ class Greeting {
         return "Hello, ${platform.name}!"
     }
 
-    @ThreadLocal
+//    @ThreadLocal <----- removing this old annotation solved the issue
     companion object {
         private var count = 0
         fun addCount() {
