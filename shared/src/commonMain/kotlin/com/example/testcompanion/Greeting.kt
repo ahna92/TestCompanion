@@ -1,6 +1,7 @@
 package com.example.testcompanion
 
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 import kotlin.native.concurrent.ThreadLocal
@@ -24,7 +25,7 @@ class Greeting {
         }
 
         fun onCallBack(action: () -> Unit) {
-            ContextScope.getSupervisor(Dispatchers.Default).launch {
+            GlobalScope.launch(Dispatchers.Default) {
                 action()
             }
         }
